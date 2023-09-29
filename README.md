@@ -1,3 +1,7 @@
+# Final Project for Promineo Tech
+
+This project will use all methods learned within this bootcamp. Final project will be a fitness app that users can interact with
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
