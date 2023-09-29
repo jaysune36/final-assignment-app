@@ -21,7 +21,7 @@ class FitnessAPI {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(memeber)
+        body: JSON.stringify(member)
         
       });
       return await resp.json()
