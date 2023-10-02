@@ -4,28 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 export default function SignUp() {
-  // const [users, setUsers] = useState([]);
   const [newUserName, setNewUserName] = useState('');
-  const [newEmail, setNewEmail] = useState('')
-
-  // useEffect(() => {
-  //   fitnessApi.get()
-  //     .then(data => setUsers(data))
-  // }, [])
-
-  // const fetchFitnessUsers = async () => {
-  //   const users = await fitnessApi.get();
-  //   setUsers(users)
-  // }
+  const [newEmail, setNewEmail] = useState('');
 
   const addNewUser = async (e) => {
     e.preventDefault();
-    await fitnessApi.post({name: newUserName, email: newEmail, exercises: [], daily: []})
-    // fetchFitnessUsers();
+    await fitnessApi.post({name: newUserName, email: newEmail, exercises: [], daily: []});
     setNewUserName('');
     setNewEmail('');
-    // console.log(users);
-    // console.log(newEmail)
   }
 
 

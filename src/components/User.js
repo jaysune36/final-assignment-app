@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import { fitnessApi } from "./FitnessApi";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -12,6 +11,7 @@ function User(props) {
         <Card.Title>{props.name}</Card.Title>
         <Card.Text>{props.email}</Card.Text>
         <Button variant="primary">Go somewhere</Button>
+        <Button className="hover-op left-mar" variant='danger' onClick={()=>{props.deleteUser(props.id)}}>Delete</Button>
       </Card.Body>
     </Card>
     </div>

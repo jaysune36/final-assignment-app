@@ -16,9 +16,14 @@ function UsersList() {
     setUsers(users)
   }
 
+  const deleteUser = async (id) => {
+    await fitnessApi.delete(id);
+    fetchFitnessUsers();
+  }
+
   if(users) {
     users.map((user) => {
-      usersListArr.push(<User key={user.id} name={user.name} email={user.email}/>)
+      usersListArr.push(<User key={user.id} id={user.id} name={user.name} email={user.email} deleteUser={deleteUser}/>)
     }
     )
   }

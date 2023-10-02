@@ -42,3 +42,12 @@
 .sign-up {
   height: 75vh;
 }
+
+.hover-op:hover {
+  cursor: pointer;
+  opacity: .5;
+}
+
+.left-mar {
+  margin-left: .5rem;
+}
