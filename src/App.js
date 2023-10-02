@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import SignUp from './components/Signup';
 import './App.css';
+import UsersList from './components/UsersList';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Nav className="me-auto">
             <Link to="/exercie-sel">Exercies</Link>
             <Link to="/daily">Daily Activity</Link>
+            <Link to="/users">Community</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -28,7 +30,8 @@ function App() {
 
           <Route path="/daily">
           </Route> */}
-          
+          <Route path="/users" element={<UsersList />}/>
+
           <Route path="/" element={<SignUp />}/>
     </Routes>
     </Router>
