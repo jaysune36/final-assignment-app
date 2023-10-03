@@ -1,29 +1,18 @@
 import React, {useEffect, useState} from "react";
 import { fitnessApi } from "./FitnessApi";
-import User from "./User";
+import UserCard from './User'
 
-function UsersList() {
-  const [users, setUsers] = useState([]);
+function UsersList({users, deleteUser, fetchFitnessUsers, setUserLogin}) {
+  
   let usersListArr = [];
 
   useEffect(() => {
-    fitnessApi.get()
-      .then(data => setUsers(data))
+    fetchFitnessUsers()
   }, [])
-
-  const fetchFitnessUsers = async () => {
-    const users = await fitnessApi.get();
-    setUsers(users)
-  }
-
-  const deleteUser = async (id) => {
-    await fitnessApi.delete(id);
-    fetchFitnessUsers();
-  }
 
   if(users) {
     users.map((user) => {
-      usersListArr.push(<User key={user.id} id={user.id} name={user.name} email={user.email} deleteUser={deleteUser}/>)
+      usersListArr.push(<UserCard user={user} key={user.id} deleteUser={deleteUser} setUserLogin={setUserLogin}/>)
     }
     )
   }

@@ -1,17 +1,22 @@
 import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function User(props) {
+function User({user, deleteUser, setUserLogin}) {
+  
+  const userLogged = () => {
+    setUserLogin(prev => user)
+  }
 
   return (
     <div>
-       <Card style={{ width: '18rem' }}>
+       <Card className='selectUser' bg='dark' text='light' style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title>{props.name}</Card.Title>
-        <Card.Text>{props.email}</Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-        <Button className="hover-op left-mar" variant='danger' onClick={()=>{props.deleteUser(props.id)}}>Delete</Button>
+        <Card.Title>{user.name}</Card.Title>
+        <Card.Text>{user.email}</Card.Text>
+        <Link to={`/users/${user.id}`} onClick={userLogged}><Button className="hover-op" variant="success">User Exercies</Button></Link>
+        <Button className="hover-op left-mar" variant='danger' onClick={()=>{deleteUser(user.id)}}>Delete</Button>
       </Card.Body>
     </Card>
     </div>

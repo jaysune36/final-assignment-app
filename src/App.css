@@ -39,6 +39,10 @@
 
 /* Developer Stylings */
 
+* {
+  background-color: #3d3d3d;
+}
+
 .sign-up {
   height: 75vh;
 }
@@ -50,4 +54,9 @@
 
 .left-mar {
   margin-left: .5rem;
+}
+
+.selectUser {
+  border: 5px solid #198754;
+  border-radius: 10px;
 }
