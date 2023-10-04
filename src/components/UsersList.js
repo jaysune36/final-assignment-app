@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import { fitnessApi } from "./FitnessApi";
 import UserCard from './User'
 
 function UsersList({users, deleteUser, fetchFitnessUsers, setUserLogin}) {

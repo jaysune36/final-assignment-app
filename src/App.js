@@ -31,6 +31,10 @@ function App() {
     fetchFitnessUsers();
   }
 
+  const updateLogin = (value) => {
+    setUserLogin(value)
+  }
+
   return (
     <Router>
        <Navbar expand="lg" className="bg-body-tertiary">
@@ -54,7 +58,7 @@ function App() {
           </Route> */}
           <Route path="/users" element={<UsersList users={users} deleteUser={deleteUser} fetchFitnessUsers={fetchFitnessUsers} setUserLogin={setUserLogin}/>}>
           </Route>
-            <Route path="/users/:id" element={<SelectUser userLogin={userLogin} />}/>
+            <Route path="/users/:id" element={<SelectUser userLogin={userLogin} setUserLogin={setUserLogin} updateLogin={updateLogin} fetchFitnessUsers={fetchFitnessUsers}/>}/>
 
           <Route path="/" element={<SignUp />}/>
     </Routes>
