@@ -6,7 +6,7 @@ import {fitnessApi} from './FitnessApi';
 import ExerciseCard from './ExerciseCard';
 import { useParams } from 'react-router-dom';
 
-function ExerciseList({userLogin, fetchFitnessUsers, setUserLogin}) {
+function ExerciseList({userLogin, setUserLogin, fetchFitnessUsers}) {
 
   const [newExerciseName, setNewExerciseName] = useState('');
   const { id } = useParams();
@@ -22,16 +22,25 @@ function ExerciseList({userLogin, fetchFitnessUsers, setUserLogin}) {
         }
       ]
     });
-    const resp = await fetch(`https://6514e010dc3282a6a3cd95f8.mockapi.io/fitnessOne/${id}`);
-    const data = await resp.json();
+    const data = await fitnessApi.getItem(id);
     setUserLogin(data);
     setNewExerciseName('');
   }
 
+  const deleteItem = async(item) => {
+    const updateItems = {
+      ...userLogin.exercises, 
+      exercises: userLogin.exercises.filter((x) => userLogin.exercises.indexOf(x) !== item) 
+    };
+    await fitnessApi.put(id, updateItems)
+    const data = await fitnessApi.getItem(id);
+    setUserLogin(data);
+  }
+
     userLogin.exercises.map((exercise, index) => {
       listItems.push (
-        <ExerciseCard key={index}
-          exercise={exercise}/>
+        <ExerciseCard key={index} index={index}
+          exercise={exercise} deleteItem={deleteItem}/>
       )
     })
 

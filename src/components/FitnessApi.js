@@ -7,10 +7,20 @@ class FitnessAPI {
   get = async() => {
     try {
       const resp = await fetch(FITNESS_API);
-      const data = resp.json();
+      const data = await resp.json();
       return data;
     } catch(e) {
       console.log('There was an error trying to fetch your data', e)
+    }
+  }
+
+  getItem = async(id) => {
+    try {
+      const resp = await fetch(`${FITNESS_API}/${id}`);
+      const data = await resp.json();
+      return data;
+    } catch(e) {
+      console.log('There was an error trying to fetch item', e)
     }
   }
 
