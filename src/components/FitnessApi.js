@@ -14,7 +14,7 @@ class FitnessAPI {
     }
   }
 
-  getItem = async(id) => {
+  getUser = async(id) => {
     try {
       const resp = await fetch(`${FITNESS_API}/${id}`);
       const data = await resp.json();

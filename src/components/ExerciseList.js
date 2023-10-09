@@ -6,41 +6,63 @@ import {fitnessApi} from './FitnessApi';
 import ExerciseCard from './ExerciseCard';
 import { useParams } from 'react-router-dom';
 
-function ExerciseList({userLogin, setUserLogin, fetchFitnessUsers}) {
+function ExerciseList({userLogin, setUserLogin, availItems, fetchFitnessUsers}) {
 
   const [newExerciseName, setNewExerciseName] = useState('');
+  // const [details, setDetails] = useState([]);
+  const [ calories, setCalories] = useState(0);
+  const [ duration, setDuration ] = useState(0);
+  const [ heartRate, setHeartRate ] = useState(0);
   const { id } = useParams();
-
   let listItems = [];
 
   const addItem = async (e) => {
     e.preventDefault()
-    await fitnessApi.put(userLogin.id, {
+    await fitnessApi.put(id, {
       exercises: [
         ...userLogin.exercises, {
-          name: newExerciseName
+          name: newExerciseName,
+          details: []
         }
       ]
     });
-    const data = await fitnessApi.getItem(id);
+    const data = await fitnessApi.getUser(id);
     setUserLogin(data);
     setNewExerciseName('');
   }
 
   const deleteItem = async(item) => {
     const updateItems = {
-      ...userLogin.exercises, 
+      ...userLogin, 
       exercises: userLogin.exercises.filter((x) => userLogin.exercises.indexOf(x) !== item) 
     };
     await fitnessApi.put(id, updateItems)
-    const data = await fitnessApi.getItem(id);
+    const data = await fitnessApi.getUser(id);
     setUserLogin(data);
+  }
+
+  const addExerciseInfo = async(e, index) => {
+    e.preventDefault()
+    const newDetails = {
+      ...userLogin, 
+      details: userLogin.exercises[index].details.push(
+        {calories: calories},
+        {duration: duration},
+        {heartRate: heartRate}
+      )
+    }
+   await fitnessApi.put(id, newDetails)
+   const data = await fitnessApi.getUser(id)
+   setUserLogin(data);
+   setCalories(0);
+   setDuration(0);
+   setHeartRate(0)
   }
 
     userLogin.exercises.map((exercise, index) => {
       listItems.push (
-        <ExerciseCard key={index} index={index}
-          exercise={exercise} deleteItem={deleteItem}/>
+        <ExerciseCard key={index} index={index} addExerciseInfo={addExerciseInfo}
+          exercise={exercise} deleteItem={deleteItem} setCalories={setCalories} setHeartRate={setHeartRate} setDuration={setDuration} calories={calories} duration={duration} heartRate={heartRate}/>
       )
     })
 
@@ -57,7 +79,7 @@ function ExerciseList({userLogin, setUserLogin, fetchFitnessUsers}) {
         <Button type='submit' className="hover-op mt-2" variant="success">Add</Button>
       </Form>
       <Card className='mt-5'>
-        <Card.Header className=''>Exercise List</Card.Header>
+        <Card.Header>Exercise List</Card.Header>
         <Card.Body>
           <div className='d-flex flex-wrap justify-content-between'>
             {listItems}

@@ -1,31 +1,19 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { useParams } from 'react-router-dom';
-import { fitnessApi } from './FitnessApi';
+import ActivityInfo from './ActivityInfo';
 
-function ExerciseCard({exercise, setUserLogin, deleteItem, index}) {
-
-  const {id} = useParams()
-
-  // const deleteItem = async() => {
-  //   // const updateItems = {
-  //   //   ...exercise, 
-  //   //   exercises: exercise.exercises.filter((x) => x.id !== id) 
-  //   // };
-
-  //   console.log()
-  //   // await fitnessApi.put(id, updateItems)
-  //   // const data = await fitnessApi.getItem(id);
-  //   // setUserLogin(data);
-  // }
+function ExerciseCard({exercise, deleteItem, index, addExerciseInfo, setDetails, setCalories, setHeartRate, setDuration, calories, duration, heartRate}) {
 
   return (
     <div>
-       <Card className='mb-3' border="light" style={{ width: '18rem' }}>
-        <Card.Header>{exercise.name}</Card.Header>
+       <Card className='mb-3' border="light" style={{ width: '18rem'}}>
+        <Card.Header className='d-flex flex-rows justify-content-between align-items-center'>
+          <Card.Title className='card-info-title'>{exercise.name}</Card.Title>
+          <Button variant='danger' className='card-delete' onClick={()=>deleteItem(index)}>Delete</Button>
+          </Card.Header>
         <Card.Body>
-          <Button onClick={()=>deleteItem(index)}>Delete</Button>
+          <ActivityInfo exercise={exercise} addExerciseInfo={addExerciseInfo} index={index} setCalories={setCalories} setHeartRate={setHeartRate} setDuration={setDuration} calories={calories} duration={duration} heartRate={heartRate}/>
         </Card.Body>
       </Card>
     </div>

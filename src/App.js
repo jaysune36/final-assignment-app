@@ -21,6 +21,8 @@ function App() {
       .then(data => setUsers(data))
   }, []);
 
+
+
  const fetchFitnessUsers = async () => {
     const users = await fitnessApi.get();
     setUsers(users)
@@ -54,7 +56,7 @@ function App() {
           </Route> */}
           <Route path="/users" element={<UsersList users={users} deleteUser={deleteUser} fetchFitnessUsers={fetchFitnessUsers} setUserLogin={setUserLogin}/>}>
           </Route>
-            <Route path="/users/:id" element={<SelectUser userLogin={userLogin} setUserLogin={setUserLogin}/>}/>
+            <Route path="/users/:id" element={<SelectUser userLogin={userLogin} setUserLogin={setUserLogin} fetchFitnessUsers={fetchFitnessUsers}/>}/>
 
           <Route path="/" element={<SignUp />}/>
     </Routes>

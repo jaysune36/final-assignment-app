@@ -9,7 +9,7 @@ export default function SignUp() {
 
   const addNewUser = async (e) => {
     e.preventDefault();
-    await fitnessApi.post({name: newUserName, email: newEmail, exercises: [], daily: []});
+    await fitnessApi.post({name: newUserName, email: newEmail, exercises: []});
     setNewUserName('');
     setNewEmail('');
   }

@@ -60,3 +60,21 @@
   border: 5px solid #198754;
   border-radius: 10px;
 }
+
+.workout-details {
+  color: white;
+}
+
+.workout-card {
+  border: none;
+}
+
+.card-info-title {
+  background-color: white;
+}
+
+.card-delete {
+  background-color: white;
+  color: red;
+  border: none;
+}
