@@ -109,7 +109,7 @@
   color: white;
 }
 
-.exercise-items div p{
+.exercise-items div{
   color: white;
 }
 
@@ -125,6 +125,75 @@
   flex-direction: row;
   width: 70%;
 }
+
+.tip {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Background Images for Exercise Items */
+
+.road {
+  background-image: url('https://t3.ftcdn.net/jpg/00/81/26/82/360_F_81268225_eVHynMTlVQf3wVdYOoUEz8d8KolhVZm0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.road-fast {
+  background-image: url('https://i.pinimg.com/1200x/c3/84/11/c38411c85736dc459d06cdd747e758aa.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hiking {
+  background-image: url('https://image.cnbcfm.com/api/v1/image/104793124-IMG_4480.jpg?v=1529476582');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.treadmill {
+  background-image: url('https://www.lifefitness.com/resource/image/41896/landscape_ratio4x3/768/576/71de02193cefe2fab86cddfc30a18501/ue/lifefitness-016.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swimming {
+  background-image: url('https://swimswam.com/wp-content/uploads/2020/08/Pool-Stock-By-Jack-Spitser-CD8I9739-scaled.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.circuit {
+  background-image: url('https://www.zumub.com/blog/wp-content/uploads/2018/02/113_circuit-training.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.e-bike {
+  background-image: url('https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/07/bspoke.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cycle {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJYkKCby2oXXKuM_GlxV2-B8ubEf46pc9KbA&usqp=CAU');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ellip {
+  background-image: url('https://cdn.sanity.io/images/ruord509/production/4f3e115ea4ca1b943175e641e569b8f4afc343b0-600x300.jpg?w=3840&q=75&fit=clip&auto=format');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.weights {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZisSHyh2zIi1prYSE9ky01C0Whij3OY9GiA&usqp=CAU');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Media Queries */
 
 @media (min-width: 768px) {
   .card-info-single {

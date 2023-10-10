@@ -18,7 +18,7 @@ export default function SignUp() {
   return(
     <div>
       <div className="sign-up container d-flex flex-column justify-content-center align-items-center">
-      <h1 className="font-color">SignUp</h1>
+      <h1 className="font-color">FitnessOne</h1>
         <Form className="border rounded p-5 sign-up-card" onSubmit={addNewUser}>
       <Form.Group className="mb-3">
         <Form.Label>Name</Form.Label>
