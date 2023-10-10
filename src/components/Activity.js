@@ -23,19 +23,19 @@ function Activity({userLogin}) {
 
 
   return (
-    <div className='d-md-flex flex-rows justify-content-around mb-3'>
-    <div>
-  <Card.Text className='text-center'>Duration</Card.Text>
-  <Card.Text className='text-center'>{calories} Burned</Card.Text>
-    </div>
-    <div>
-  <Card.Text className='text-center'>Calories</Card.Text>
-  <Card.Text className='text-center'>{duration} mins</Card.Text>
-    </div>
-    <div>
-  <Card.Text className='text-center'>Heart Rate</Card.Text>
-  <Card.Text className='text-center'>{Math.round(heartRate / bpmAvg)} bpm Average</Card.Text>
-    </div>
+    <div className='d-md-flex flex-rows justify-content-around mb-3 activity-board'>
+      <div className='mb-3'>
+        <Card.Text className='text-center fst-italic fw-bolder mb-0'>Calories: </Card.Text>
+        <Card.Text className='text-center'>{calories} Burned</Card.Text>
+      </div>
+      <div className='mb-3'>
+        <Card.Text className='text-center fst-italic fw-bolder mb-0'>Duration: </Card.Text>
+        <Card.Text className='text-center'>{duration} mins</Card.Text>
+      </div>
+      <div>
+        <Card.Text className='text-center fst-italic fw-bolder mb-0'>Heart Rate: </Card.Text>
+        <Card.Text className='text-center'>{Math.round(heartRate / bpmAvg)} bpm Average</Card.Text>
+      </div>
   </div>
   )
 }

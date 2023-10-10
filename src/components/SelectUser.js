@@ -29,7 +29,7 @@ function SelectUser({userLogin, fetchFitnessUsers, setUserLogin}) {
       <Card className='selectUser' bg='dark' text='light'>
         <Card.Header className='fs-2 text-center'>{userLogin.name}</Card.Header>
         <Card.Body>
-          <Card.Text className='text-center'>{userLogin.email}</Card.Text>
+          <Card.Text className='text-center bottom-border'>{userLogin.email}</Card.Text>
           <Activity userLogin={userLogin}/>
                 <ExerciseList userLogin={userLogin} fetchFitnessUsers={fetchFitnessUsers} setUserLogin={setUserLogin} availItems={availItems}/>
         </Card.Body>

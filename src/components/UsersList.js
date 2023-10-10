@@ -18,7 +18,7 @@ function UsersList({users, deleteUser, fetchFitnessUsers, setUserLogin}) {
   
   return (
     <div className="container mt-5">
-      <div className="d-md-flex flex-wrap align-items-center justify-content-center row-gap-5 column-gap-3">
+      <div className="d-flex flex-wrap align-items-center justify-content-center row-gap-5 column-gap-3">
       {usersListArr}
       </div>
     </div>

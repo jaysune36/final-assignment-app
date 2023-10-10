@@ -3,11 +3,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ActivityInfo from './ActivityInfo';
 
-function ExerciseCard({exercise, deleteItem, index, addExerciseInfo, setDetails, setCalories, setHeartRate, setDuration, calories, duration, heartRate}) {
+function ExerciseCard({exercise, deleteItem, index, addExerciseInfo, setCalories, setHeartRate, setDuration, calories, duration, heartRate}) {
 
   return (
     <div>
-       <Card className='mb-3' border="light" style={{ width: '18rem'}}>
+       <Card className='mb-3 card-info-single' border="light">
         <Card.Header className='d-flex flex-rows justify-content-between align-items-center'>
           <Card.Title className='card-info-title'>{exercise.name}</Card.Title>
           <Button variant='danger' className='card-delete' onClick={()=>deleteItem(index)}>Delete</Button>

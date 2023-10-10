@@ -9,7 +9,6 @@ import { useParams } from 'react-router-dom';
 function ExerciseList({userLogin, setUserLogin, availItems, fetchFitnessUsers}) {
 
   const [newExerciseName, setNewExerciseName] = useState('');
-  // const [details, setDetails] = useState([]);
   const [ calories, setCalories] = useState(0);
   const [ duration, setDuration ] = useState(0);
   const [ heartRate, setHeartRate ] = useState(0);
@@ -68,7 +67,7 @@ function ExerciseList({userLogin, setUserLogin, availItems, fetchFitnessUsers}) 
 
   return (
     <div>
-      <Form className='text-center d-flex justify-content-center align-items-center flex-column'
+      <Form className='text-center d-flex justify-content-center align-items-center flex-column top-border'
         onSubmit={addItem}
         >
         <Form.Label>Add New Exercise</Form.Label>
@@ -81,7 +80,7 @@ function ExerciseList({userLogin, setUserLogin, availItems, fetchFitnessUsers}) 
       <Card className='mt-5'>
         <Card.Header>Exercise List</Card.Header>
         <Card.Body>
-          <div className='d-flex flex-wrap justify-content-between'>
+          <div className='d-sm-flex flex-wrap justify-content-between'>
             {listItems}
           </div>
         </Card.Body>

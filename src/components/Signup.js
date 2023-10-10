@@ -18,7 +18,8 @@ export default function SignUp() {
   return(
     <div>
       <div className="sign-up container d-flex flex-column justify-content-center align-items-center">
-        <Form className="border rounded p-5 w-50" onSubmit={addNewUser}>
+      <h1 className="font-color">SignUp</h1>
+        <Form className="border rounded p-5 sign-up-card" onSubmit={addNewUser}>
       <Form.Group className="mb-3">
         <Form.Label>Name</Form.Label>
         <Form.Control type="text" placeholder="Name" onChange={
@@ -33,7 +34,7 @@ export default function SignUp() {
           (e)=>setNewEmail(e.target.value)
         } 
         value={newEmail}/>
-        <Form.Text className="text-muted">
+        <Form.Text className="font-color">
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>

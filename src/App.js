@@ -10,6 +10,7 @@ import SignUp from './components/Signup';
 import './App.css';
 import UsersList from './components/UsersList';
 import SelectUser from './components/SelectUser';
+import ExerciseItems from './components/ExerciseItems';
 
 function App() {
 
@@ -35,25 +36,20 @@ function App() {
 
   return (
     <Router>
-       <Navbar expand="lg" className="bg-body-tertiary">
+       <Navbar expand="md" variant="dark" className='border-bottom'>
       <Container>
-        <Navbar.Brand><Link to="/">Home</Link></Navbar.Brand>
+        <Navbar.Brand><Link to="/" className='text-decoration-none'>Home / SignUp</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Link to="/exercie-sel">Exercies</Link>
-            <Link to="/daily">Daily Activity</Link>
-            <Link to="/users">Community</Link>
+          <Nav className="me-auto ">
+            <Link to="/exercise-sel" className='margin-r text-decoration-none'>Exercies</Link>
+            <Link to="/users" className='text-decoration-none'>Community</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
     <Routes>
-    {/* <Route path="/exercise-sel">
-          </Route>
-
-          <Route path="/daily">
-          </Route> */}
+    <Route path="/exercise-sel" element={<ExerciseItems />}/>
           <Route path="/users" element={<UsersList users={users} deleteUser={deleteUser} fetchFitnessUsers={fetchFitnessUsers} setUserLogin={setUserLogin}/>}>
           </Route>
             <Route path="/users/:id" element={<SelectUser userLogin={userLogin} setUserLogin={setUserLogin} fetchFitnessUsers={fetchFitnessUsers}/>}/>

@@ -21,7 +21,7 @@ function CustomToggle({children, eventKey}) {
   );
 }
 
-function ActivityInfo({exercise, setDetails, addExerciseInfo, index, setCalories, setHeartRate, setDuration, calories, duration, heartRate}) {
+function ActivityInfo({addExerciseInfo, index, setCalories, setHeartRate, setDuration, calories, duration, heartRate}) {
 
   return (
 
