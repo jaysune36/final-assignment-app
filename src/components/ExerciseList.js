@@ -6,14 +6,30 @@ import {fitnessApi} from './FitnessApi';
 import ExerciseCard from './ExerciseCard';
 import { useParams } from 'react-router-dom';
 
-function ExerciseList({userLogin, setUserLogin, availItems, fetchFitnessUsers}) {
+function ExerciseList({userLogin, setUserLogin}) {
 
   const [newExerciseName, setNewExerciseName] = useState('');
   const [ calories, setCalories] = useState(0);
   const [ duration, setDuration ] = useState(0);
   const [ heartRate, setHeartRate ] = useState(0);
+  const [ userloaded, setUserLoaded ] = useState(false);
   const { id } = useParams();
   let listItems = [];
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const resp = await fetch(`https://6514e010dc3282a6a3cd95f8.mockapi.io/fitnessOne/${id}`);
+      const data = await resp.json();
+      setUserLogin(data);
+    }
+
+    fetchUserData(id)
+      .then(setTimeout(() => {
+        setUserLoaded(true)
+      }, 500))
+      .catch(console.error);
+  }, [id, setUserLogin]);
+
 
   const addItem = async (e) => {
     e.preventDefault()
@@ -58,12 +74,32 @@ function ExerciseList({userLogin, setUserLogin, availItems, fetchFitnessUsers}) 
    setHeartRate(0)
   }
 
-    userLogin.exercises.map((exercise, index) => {
+if (userloaded) {
+  listItems = [];
+
+  
+  userLogin.exercises.map((exercise, index) => {
+    return (
       listItems.push (
-        <ExerciseCard key={index} index={index} addExerciseInfo={addExerciseInfo}
-          exercise={exercise} deleteItem={deleteItem} setCalories={setCalories} setHeartRate={setHeartRate} setDuration={setDuration} calories={calories} duration={duration} heartRate={heartRate}/>
-      )
-    })
+      <ExerciseCard 
+        key={index}
+        index={index}
+        addExerciseInfo={addExerciseInfo}
+        exercise={exercise}
+        deleteItem={deleteItem}
+        setCalories={setCalories}
+        setHeartRate={setHeartRate}
+        setDuration={setDuration}
+        calories={calories}
+        duration={duration}
+        heartRate={heartRate}/>
+    )
+    
+    )
+  })
+}
+
+    
 
   return (
     <div>
@@ -89,5 +125,5 @@ function ExerciseList({userLogin, setUserLogin, availItems, fetchFitnessUsers}) 
 
   )
 }
-
-export default ExerciseList
+  
+export default ExerciseList;

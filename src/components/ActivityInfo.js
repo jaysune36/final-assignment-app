@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Accordion from 'react-bootstrap/esm/Accordion'
 import Card from 'react-bootstrap/Card'
@@ -34,9 +34,9 @@ function ActivityInfo({addExerciseInfo, index, setCalories, setHeartRate, setDur
           <Form className='m-1 workout-details'>
             <Form.Label>Calories</Form.Label>
             <Form.Control type="number" onChange={(e)=>setCalories(e.target.value)} value={calories}></Form.Control>
-            <Form.Label>Duration</Form.Label>
+            <Form.Label>Duration<span className='italic'> (.min)</span></Form.Label>
             <Form.Control type="number" placeholder='(in mins)' onChange={(e)=>setDuration(e.target.value)} value={duration}></Form.Control>
-            <Form.Label>Heart Rate</Form.Label>
+            <Form.Label>Heart Rate<span className='italic'> (bpm)</span></Form.Label>
             <Form.Control type="number" onChange={(e)=>setHeartRate(e.target.value)} value={heartRate}></Form.Control>
             <div className="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
               <Button className="btn btn-success me-md-2" type="submit" onClick={(e)=>addExerciseInfo(e, index)}>Add</Button>

@@ -8,6 +8,7 @@ function Activity({userLogin}) {
   let heartRate = 0;
   let bpmAvg = 0;
   
+  if(userLogin.exercises){
     for(let i=0; i<userLogin.exercises.length ;i++) {
       for(let j=0; j<userLogin.exercises[i].details.length; j++) {
         if(userLogin.exercises[i].details[j].calories) {
@@ -20,7 +21,7 @@ function Activity({userLogin}) {
         }
       }
     }
-
+  }
 
   return (
     <div className='d-md-flex flex-rows justify-content-around mb-3 activity-board'>

@@ -6,7 +6,7 @@ import ActivityInfo from './ActivityInfo';
 function ExerciseCard({exercise, deleteItem, index, addExerciseInfo, setCalories, setHeartRate, setDuration, calories, duration, heartRate}) {
 
   return (
-    <div>
+    <div key={index}>
        <Card className='mb-3 card-info-single' border="light">
         <Card.Header className='d-flex flex-rows justify-content-between align-items-center'>
           <Card.Title className='card-info-title'>{exercise.name}</Card.Title>

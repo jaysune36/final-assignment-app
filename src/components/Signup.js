@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import { fitnessApi } from "./FitnessApi";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';

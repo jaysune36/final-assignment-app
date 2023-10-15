@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import { useState, useEffect } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {BrowserRouter as Router, Routes, Route, Link, useParams} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import { fitnessApi } from './components/FitnessApi';
 import SignUp from './components/Signup';
 import './App.css';

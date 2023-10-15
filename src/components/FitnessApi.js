@@ -1,4 +1,3 @@
-import React from 'react' 
 
 const FITNESS_API = 'https://6514e010dc3282a6a3cd95f8.mockapi.io/fitnessOne'
 
@@ -60,6 +59,7 @@ class FitnessAPI {
         },
         body: JSON.stringify(newMember)
       })
+      return await resp.json()
     } catch(e) {
       console.log('There was an error with your POST method', e)
     }

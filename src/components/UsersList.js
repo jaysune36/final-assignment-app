@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import UserCard from './User'
 
 function UsersList({users, deleteUser, fetchFitnessUsers, setUserLogin}) {
