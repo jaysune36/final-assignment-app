@@ -3,6 +3,7 @@ import { fitnessApi } from "./FitnessApi";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+// Signup Page displays a form to the user and will use the inputs and onChange method sets the states for the newUserName and newEmail. That form then creates and adds the information as a new object and using the post method from the fitnessApi component adds this new member. 
 export default function SignUp() {
   const [newUserName, setNewUserName] = useState('');
   const [newEmail, setNewEmail] = useState('');

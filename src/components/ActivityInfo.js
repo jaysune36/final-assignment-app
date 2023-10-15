@@ -21,6 +21,7 @@ function CustomToggle({children, eventKey}) {
   );
 }
 
+// ActivityInfo is added as a component to each exerciseItem from the userLogin state. This displays a form to the user to added the selected inputs and then the addExerceriseInfo function is called
 function ActivityInfo({addExerciseInfo, index, setCalories, setHeartRate, setDuration, calories, duration, heartRate}) {
 
   return (

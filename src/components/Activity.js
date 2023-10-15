@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 
+// Activity is a portion of the selectedUser component that displays the users activity sums. A loop is then run to each item information stored within the userLogin state and displays to the user.
 function Activity({userLogin}) {
 
   let calories = 0;

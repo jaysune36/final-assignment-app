@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card';
 import ExerciseList from './ExerciseList';
 import Activity from './Activity';
 
+
+// SelectUser component displays the userLogin state from the User that was selected in the UserList page.
 function SelectUser({userLogin, fetchFitnessUsers, setUserLogin}) {
 
 

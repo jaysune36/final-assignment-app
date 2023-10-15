@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ActivityInfo from './ActivityInfo';
 
+// ExerciseCard components takes the passes props and deconstructes them to display each execrises from the userLogin state and renders it to the user.
 function ExerciseCard({exercise, deleteItem, index, addExerciseInfo, setCalories, setHeartRate, setDuration, calories, duration, heartRate}) {
 
   return (

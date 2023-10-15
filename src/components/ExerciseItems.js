@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 
+// Exercise items displays to the user different types of exercises that can be done and gives some help benefits
 function ExerciseItems() {
   return (
     <div>

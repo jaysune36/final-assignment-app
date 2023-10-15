@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import UserCard from './User'
 
+// After being passed and deconstructing the props passed, the UserList page uses the useEffect method and updates with the fetchFitnessUsers fuction and then creates a list of Users that are displayed.
 function UsersList({users, deleteUser, fetchFitnessUsers, setUserLogin}) {
   
   let usersListArr = [];
@@ -11,7 +12,9 @@ function UsersList({users, deleteUser, fetchFitnessUsers, setUserLogin}) {
 
   if(users) {
     users.map((user) => {
-      usersListArr.push(<UserCard user={user} key={user.id} deleteUser={deleteUser} setUserLogin={setUserLogin}/>)
+      return(
+        usersListArr.push(<UserCard user={user} key={user.id} deleteUser={deleteUser} setUserLogin={setUserLogin}/>)
+      )
     }
     )
   }

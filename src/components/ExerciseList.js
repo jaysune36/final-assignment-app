@@ -16,6 +16,7 @@ function ExerciseList({userLogin, setUserLogin}) {
   const { id } = useParams();
   let listItems = [];
 
+  // useEffect will be run once the page is loaded. It creates an async fuction and runs the methods needed for an API call. Then with the useParams methods adds the id to only grab that users information.
   useEffect(() => {
     const fetchUserData = async () => {
       const resp = await fetch(`https://6514e010dc3282a6a3cd95f8.mockapi.io/fitnessOne/${id}`);
@@ -24,13 +25,14 @@ function ExerciseList({userLogin, setUserLogin}) {
     }
 
     fetchUserData(id)
+    // this setTimeout call was used to wait for the load of the user before changing. The reason is that once it was called after the fetchUserData a error was caused for a 'map' bug. This will prevent that bug so the users exercise list items can be displayed
       .then(setTimeout(() => {
         setUserLoaded(true)
       }, 500))
       .catch(console.error);
   }, [id, setUserLogin]);
 
-
+// addItem will use the input name from the user and add it to the newExerciseName state. Then a put call is used from the fitnessAPI function and that newExerciseName state is added to that user exerciseList items.
   const addItem = async (e) => {
     e.preventDefault()
     await fitnessApi.put(id, {
@@ -46,6 +48,7 @@ function ExerciseList({userLogin, setUserLogin}) {
     setNewExerciseName('');
   }
 
+  // deleteItem will remove a selected item from the userList items, but this will use the put method and actually update the users exercise list items through a filter mehtod and display the new array of items
   const deleteItem = async(item) => {
     const updateItems = {
       ...userLogin, 
@@ -56,6 +59,7 @@ function ExerciseList({userLogin, setUserLogin}) {
     setUserLogin(data);
   }
 
+  // similar to the addItem fuction, the addExerciseInfo will use the inputs given from that specific exercise item and add them to the calories, duration, and heartrate states. Then usings another put call to add all that information to that specific exercise which will be used in a later function
   const addExerciseInfo = async(e, index) => {
     e.preventDefault()
     const newDetails = {
@@ -74,6 +78,7 @@ function ExerciseList({userLogin, setUserLogin}) {
    setHeartRate(0)
   }
 
+// if the userloaded then the exercise list items will be mapped over and be rendered to the user.
 if (userloaded) {
   listItems = [];
 
@@ -98,8 +103,6 @@ if (userloaded) {
     )
   })
 }
-
-    
 
   return (
     <div>

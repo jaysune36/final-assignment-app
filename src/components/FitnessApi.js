@@ -1,4 +1,4 @@
-
+// variable is created be easily used within the class function. Then the class FitnessAPI is used to create async functions for each of the methods needed. I then created a variable to export the FitnessAPI class.
 const FITNESS_API = 'https://6514e010dc3282a6a3cd95f8.mockapi.io/fitnessOne'
 
 class FitnessAPI {
